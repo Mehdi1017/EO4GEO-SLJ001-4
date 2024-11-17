@@ -26,6 +26,10 @@
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "0.3.0",
     "@eo4geo/find-in-bok-dataviz": "^3.1.2",
+    "@types/d3-dsv": "^1.0.36",
+    "@types/d3-scale": "^4.0.8",
+    "@types/d3-scale-chromatic": "^1.5.0",
+    "@types/geojson": "^7946.0.7",
     "angular-datatables": "^9.0.2",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
@@ -43,8 +47,8 @@
     "@angular/cli": "~7.0.2",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@types/d3": "^5.0.1",
-    "@types/datatables.net": "^1.10.19",
+    "@types/d3": "5.7.2",
+    "@types/datatables.net": "1.10.19",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/jquery": "^3.5.1",
@@ -61,6 +65,6 @@
     "protractor": "^5.4.4",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.1"
+    "typescript": "3.1.3"
   }
 }
