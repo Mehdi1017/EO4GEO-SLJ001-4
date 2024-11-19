@@ -21,6 +21,11 @@ import {
 } from '@coreui/angular';
 import { LoadingIndicatorComponent } from './view/components/loading-indicator/loading-indicator.component';
 
+import {AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { FirebaseComponent } from './view/components/firebase/firebase.component';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +35,8 @@ import { LoadingIndicatorComponent } from './view/components/loading-indicator/l
     ReleaseNotesComponent,
     TruncatePipe,
     HighlightPipe,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +47,9 @@ import { LoadingIndicatorComponent } from './view/components/loading-indicator/l
     AppFooterModule,
     AppSidebarModule,
     ModalModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase)
       ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent],
   exports: [LayoutComponent]
 })
