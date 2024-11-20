@@ -6,15 +6,17 @@
     />
   </div>
   <div class="content-wrapper">
-    <h4 class="title">Air quality monitoring and management -- Advanced</h4>
+    <h4 class="title">{{ course.title }}</h4>
 
     <div class="rowData">
-      <p class="eof">EOF Level: 6</p>
-      <p class="time">90 minutes</p>
+      <p class="eof">EOF Level: {{ course.educationLevel }}</p>
+      <p class="time">{{ course.sizeOrDuration }}</p>
     </div>
 
-    <p class="language">Language: English</p>
-    <p class="publisher">Published by: <i>Univeristy of Salzurg</i></p>
-    <p class="course-type">Webinar Recording</p>
+    <p class="language">Language: {{ course.language }}</p>
+    <p class="publisher">
+      Published by: <i>{{ course.publisher }}</i>
+    </p>
+    <p class="course-type">{{ course.type }}</p>
   </div>
 </div>
