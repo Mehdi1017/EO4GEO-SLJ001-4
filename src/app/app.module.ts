@@ -25,6 +25,7 @@ import {
   AngularFirestore,
 } from "@angular/fire/firestore";
 import { IntroductionComponent } from "./view/components/introduction/introduction.component";
+import { CardComponent } from "./view/components/card/card.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { IntroductionComponent } from "./view/components/introduction/introducti
     HighlightPipe,
     LoadingIndicatorComponent,
     IntroductionComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
