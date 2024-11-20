@@ -26,6 +26,7 @@ import {
 } from "@angular/fire/firestore";
 import { IntroductionComponent } from "./view/components/introduction/introduction.component";
 import { CardComponent } from "./view/components/card/card.component";
+import { CourseWrapperComponent } from "./view/components/course-wrapper/course-wrapper.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CardComponent } from "./view/components/card/card.component";
     LoadingIndicatorComponent,
     IntroductionComponent,
     CardComponent,
+    CourseWrapperComponent,
   ],
   imports: [
     BrowserModule,
