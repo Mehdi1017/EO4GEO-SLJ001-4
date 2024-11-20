@@ -1,0 +1,6 @@
+<div class="course-wrapper">
+  <app-card
+    [course]="course"
+    *ngFor="let course of courseJSON | async"
+  ></app-card>
+</div>
