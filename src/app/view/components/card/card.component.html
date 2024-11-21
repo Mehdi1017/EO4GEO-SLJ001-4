@@ -1,0 +1,22 @@
+<div class="card-wrapper">
+  <div class="image-wrapper">
+    <img
+      src="http://www.eo4geo.eu/wp-content/uploads/2022/06/vito_webinar.png"
+      alt="course image"
+    />
+  </div>
+  <div class="content-wrapper">
+    <h4 class="title">{{ course.title }}</h4>
+
+    <div class="rowData">
+      <p class="eof">EOF Level: {{ course.educationLevel }}</p>
+      <p class="time">{{ course.sizeOrDuration }}</p>
+    </div>
+
+    <p class="language">Language: {{ course.language }}</p>
+    <p class="publisher">
+      Published by: <i>{{ course.publisher }}</i>
+    </p>
+    <p class="course-type">{{ course.type }}</p>
+  </div>
+</div>
