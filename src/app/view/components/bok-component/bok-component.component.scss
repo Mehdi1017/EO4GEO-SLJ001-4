@@ -12,3 +12,15 @@
   font-size: 18px;
   text-align: center;
 }
+
+@media screen and (min-width: 1400px) {
+  #bubbles {
+    width: 550px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  #bubbles {
+    width: 750px;
+  }
+}
