@@ -27,6 +27,7 @@ import {
 import { IntroductionComponent } from "./view/components/introduction/introduction.component";
 import { CardComponent } from "./view/components/card/card.component";
 import { CourseWrapperComponent } from "./view/components/course-wrapper/course-wrapper.component";
+import { NavbarComponent } from "./view/components/navbar/navbar.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CourseWrapperComponent } from "./view/components/course-wrapper/course-
     IntroductionComponent,
     CardComponent,
     CourseWrapperComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
