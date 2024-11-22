@@ -6,7 +6,11 @@
     />
   </div>
   <div class="content-wrapper">
-    <h4 class="title">{{ course.title }}</h4>
+    <h4 class="title">
+      {{
+        course.title.length < 85 ? course.title : course.title.substring(0, 85)
+      }}
+    </h4>
 
     <div class="rowData">
       <p class="eof">EOF Level: {{ course.educationLevel }}</p>
@@ -15,7 +19,12 @@
 
     <p class="language">Language: {{ course.language }}</p>
     <p class="publisher">
-      Published by: <i>{{ course.publisher }}</i>
+      Published by:
+      <i>{{
+        course.publisher < 60
+          ? course.publisher
+          : course.publisher.substring(0, 60)
+      }}</i>
     </p>
     <p class="course-type">{{ course.type }}</p>
   </div>
