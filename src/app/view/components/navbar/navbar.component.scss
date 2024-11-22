@@ -1,0 +1,70 @@
+.course-filter-navbar {
+  margin: 40px 32px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 232;
+  padding: 32px 8px 0px;
+
+  .link-filter {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    padding: 0px 0px 16px;
+
+    .link-list {
+      display: flex;
+      list-style: none;
+
+      li {
+        margin: 0px 8px;
+
+        a {
+          color: #1788ff;
+          text-decoration: none;
+
+          &:hover {
+            color: #087efc;
+          }
+        }
+
+        a.active {
+          color: orange;
+        }
+      }
+    }
+
+    .search-bar {
+      float: right;
+
+      input {
+        border-radius: 2px;
+        font-size: 14px;
+        padding: 4px 6px;
+        width: 260px;
+        margin-right: 8px;
+      }
+
+      .search-btn {
+        border-radius: 2px;
+        padding: 3px 6px;
+      }
+    }
+  }
+
+  .form-filter {
+    width: 250px;
+
+    .form-field:first-child {
+      margin-bottom: 8px;
+    }
+
+    label {
+      width: 90px;
+    }
+
+    select {
+      width: 160px;
+    }
+  }
+}
