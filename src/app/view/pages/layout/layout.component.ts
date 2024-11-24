@@ -13,6 +13,7 @@ import { environment } from "src/environments/environment";
 import { timeout } from "d3";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
+import { GetCoursesService } from "src/app/services/GetCourses";
 
 @Component({
   selector: "app-layout",
@@ -23,8 +24,8 @@ export class LayoutComponent implements OnInit {
   items: Observable<any[]>;
 
   // get the data once during app initialization
-  constructor(db: AngularFirestore) {
-    this.items = db.collection("Courses").valueChanges();
+  constructor(private getCoursesService: GetCoursesService) {
+    this.items = getCoursesService.getCourses();
   }
 
   ngOnInit() {
