@@ -1,5 +1,9 @@
 <app-header> </app-header>
 <app-introduction></app-introduction>
 <app-navbar></app-navbar>
-<app-course-wrapper [courseJSON]="items"> </app-course-wrapper>
+<div class="bok-course-container">
+  <app-bok-component></app-bok-component>
+  <app-course-wrapper [courseJSON]="items"> </app-course-wrapper>
+</div>
+
 <app-eo4geo-footer></app-eo4geo-footer>

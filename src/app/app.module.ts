@@ -28,6 +28,7 @@ import { IntroductionComponent } from "./view/components/introduction/introducti
 import { CardComponent } from "./view/components/card/card.component";
 import { CourseWrapperComponent } from "./view/components/course-wrapper/course-wrapper.component";
 import { NavbarComponent } from "./view/components/navbar/navbar.component";
+import { BokComponentComponent } from "./view/components/bok-component/bok-component.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NavbarComponent } from "./view/components/navbar/navbar.component";
     CardComponent,
     CourseWrapperComponent,
     NavbarComponent,
+    BokComponentComponent,
   ],
   imports: [
     BrowserModule,
