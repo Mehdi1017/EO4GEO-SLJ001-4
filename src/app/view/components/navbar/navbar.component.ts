@@ -45,4 +45,14 @@ export class NavbarComponent implements OnInit {
     this.courseType = courseType;
     this.emitFilterChoice();
   }
+
+  addClass(event: Event) {
+    // Remove 'active' class from all links
+    const links = document.querySelectorAll(".link");
+    links.forEach((link) => link.classList.remove("active"));
+
+    // Add 'active' class to the clicked link
+    const clickedLink = event.target as HTMLElement;
+    clickedLink.classList.add("active");
+  }
 }
