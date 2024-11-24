@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Input,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -13,6 +14,7 @@ import { environment } from "src/environments/environment";
 import { timeout } from "d3";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-layout",
@@ -21,6 +23,7 @@ import { Observable } from "rxjs";
 })
 export class LayoutComponent implements OnInit {
   items: Observable<any[]>;
+  filteredCourses$: Observable<any[]>;
 
   // get the data once during app initialization
   constructor(db: AngularFirestore) {
@@ -28,6 +31,29 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Hello World!");
+    // Initialize filteredCourses$ to show all courses initially
+    this.filteredCourses$ = this.items;
+  }
+
+  filterCourses(choice: {
+    eqfLevel: string;
+    language: string;
+    courseType: string;
+  }) {
+    this.filteredCourses$ = this.items.pipe(
+      map((courses) =>
+        courses.filter((course) => {
+          // Apply the filters
+
+          return (
+            (choice.eqfLevel === "all" ||
+              course.educationLevel === choice.eqfLevel) &&
+            (choice.language === "all" ||
+              course.language === choice.language) &&
+            (choice.courseType === "all" || course.type === choice.courseType)
+          );
+        })
+      )
+    );
   }
 }
