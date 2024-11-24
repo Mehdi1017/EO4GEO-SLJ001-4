@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Input,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -14,6 +15,7 @@ import { timeout } from "d3";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { GetCoursesService } from "src/app/services/GetCourses";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-layout",
@@ -22,6 +24,7 @@ import { GetCoursesService } from "src/app/services/GetCourses";
 })
 export class LayoutComponent implements OnInit {
   items: Observable<any[]>;
+  filteredCourses$: Observable<any[]>;
 
   // get the data once during app initialization
   constructor(private getCoursesService: GetCoursesService) {
@@ -29,6 +32,29 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Hello World!");
+    // Initialize filteredCourses$ to show all courses initially
+    this.filteredCourses$ = this.items;
+  }
+
+  filterCourses(choice: {
+    eqfLevel: string;
+    language: string;
+    courseType: string;
+  }) {
+    this.filteredCourses$ = this.items.pipe(
+      map((courses) =>
+        courses.filter((course) => {
+          // Apply the filters
+
+          return (
+            (choice.eqfLevel === "all" ||
+              course.educationLevel === choice.eqfLevel) &&
+            (choice.language === "all" ||
+              course.language === choice.language) &&
+            (choice.courseType === "all" || course.type === choice.courseType)
+          );
+        })
+      )
+    );
   }
 }

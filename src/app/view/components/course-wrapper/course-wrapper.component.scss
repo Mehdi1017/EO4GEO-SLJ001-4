@@ -4,4 +4,9 @@
   justify-content: space-between;
   gap: 16px 8px;
   flex-wrap: wrap;
+
+  .error {
+    color: red;
+    transform: translateX(250px);
+  }
 }

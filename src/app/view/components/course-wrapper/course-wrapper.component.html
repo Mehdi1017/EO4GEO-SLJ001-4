@@ -1,6 +1,7 @@
-<div class="course-wrapper">
-  <app-card
-    [course]="course"
-    *ngFor="let course of courseJSON | async"
-  ></app-card>
+<div class="course-wrapper" *ngIf="courseJSON | async as courses">
+  <app-card [course]="course" *ngFor="let course of courseJSON | async">
+  </app-card>
+  <p *ngIf="courses.length == 0" class="error">
+    Sorry! No learning material found.
+  </p>
 </div>
