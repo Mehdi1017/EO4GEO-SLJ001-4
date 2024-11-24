@@ -19,17 +19,18 @@
       li {
         margin: 0px 8px;
 
-        a {
+        .link {
           color: #1788ff;
           text-decoration: none;
 
           &:hover {
-            color: #087efc;
+            color: orange;
           }
         }
 
         a.active {
           color: orange;
+          border-bottom: 2px solid orange;
         }
       }
     }

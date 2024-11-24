@@ -20,6 +20,6 @@ export class BokComponentComponent implements OnInit {
     urls: ["https://eo4geo-uji.firebaseio.com/"], // An array of URLs containing the data to be visualized
     conceptId: "GIST", // The ID of the concept to visualize (optional)
     versions: true, // A boolean indicating whether to include versions in the visualization (optional)
-    updateUrl: true, // A boolean indicating if url should be updated with the concept id (optional)
+    updateUrl: false, // A boolean indicating if url should be updated with the concept id (optional)
   };
 }

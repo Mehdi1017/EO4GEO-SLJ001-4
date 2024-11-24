@@ -2,40 +2,134 @@
   <div class="form-filter">
     <div class="form-field">
       <label for="level">EQF Level</label>
-      <select id="level" name="dropdownName">
+      <select
+        id="level"
+        name="dropdownName"
+        (change)="onEqfChange($event.target.value)"
+      >
         <option value="all">All EQF Levels</option>
-        <option value="level_3">Level 3</option>
-        <option value="level_4">Level 4</option>
-        <option value="level_5">Level 5</option>
-        <option value="level_6">Level 6</option>
-        <option value="level_7">Level 7</option>
-        <option value="level_8">Level 8</option>
+        <option value="EQF 3">Level 3</option>
+        <option value="EQF 4">Level 4</option>
+        <option value="EQF 5">Level 5</option>
+        <option value="EQF 6">Level 6</option>
+        <option value="EQF 7">Level 7</option>
+        <option value="EQF 8">Level 8</option>
       </select>
     </div>
 
     <div class="form-field">
-      <label for="language">Languages</label>
-      <select id="language" name="dropdownName">
+      <label for="language">Language</label>
+      <select
+        id="language"
+        name="dropdownName"
+        (change)="onLanguageChange($event.target.value)"
+      >
         <option value="all">All Languages</option>
-        <option value="english">English</option>
-        <option value="german">German</option>
-        <option value="italian">Italian</option>
-        <option value="slovenien">Slovenien</option>
-        <option value="spanish">Spanish</option>
+        <option value="EN">English</option>
+        <option value="DE">German</option>
+        <option value="IT">Italian</option>
+        <option value="SLO">Slovenien</option>
+        <option value="ES">Spanish</option>
       </select>
     </div>
   </div>
 
   <nav class="link-filter">
     <ul class="link-list">
-      <li><a href="#">All</a></li>
-      <li><a href="#" class="active">Courses</a></li>
-      <li><a href="#">Lectures</a></li>
-      <li><a href="#">Self-Learning materials</a></li>
-      <li><a href="#">Teaching material</a></li>
-      <li><a href="#">Videos</a></li>
-      <li><a href="#">Webinars</a></li>
-      <li><a href="#">Workshops</a></li>
+      <li>
+        <a
+          href=""
+          (click)="
+            filterCourseType('all'); addClass($event); $event.preventDefault()
+          "
+          class="link active"
+          >All</a
+        >
+      </li>
+      <li>
+        <a
+          href="#courses"
+          class="link"
+          (click)="
+            filterCourseType('course');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Courses</a
+        >
+      </li>
+      <li>
+        <a
+          href="#lectures"
+          class="link"
+          (click)="
+            filterCourseType('lecture');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Lectures</a
+        >
+      </li>
+      <li>
+        <a
+          href="#self-learning-materials"
+          class="link"
+          (click)="
+            filterCourseType('self-learning material');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Self-Learning materials</a
+        >
+      </li>
+      <li>
+        <a
+          href="#teaching-materials"
+          class="link"
+          (click)="
+            filterCourseType('teaching material');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Teaching material</a
+        >
+      </li>
+      <li>
+        <a
+          href="#vidoes"
+          class="link"
+          (click)="
+            filterCourseType('learning material');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Videos</a
+        >
+      </li>
+      <li>
+        <a
+          href="#webinars"
+          class="link"
+          (click)="
+            filterCourseType('webinar');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Webinars</a
+        >
+      </li>
+      <li>
+        <a
+          href="#workshops"
+          class="link"
+          (click)="
+            filterCourseType('workshop');
+            addClass($event);
+            $event.preventDefault()
+          "
+          >Workshops</a
+        >
+      </li>
     </ul>
 
     <div class="search-bar">
