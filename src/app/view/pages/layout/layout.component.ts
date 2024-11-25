@@ -47,14 +47,14 @@ export class LayoutComponent implements OnInit {
       map((courses) =>
         courses.filter((course) => {
           // Apply the filters
-          console.log(course['relation'].includes(`eo4geo:${course.courseBoK}`));
+          console.log(choice.courseBoK);
           return (
             (choice.eqfLevel === "all" ||
               course.educationLevel === choice.eqfLevel) &&
             (choice.language === "all" ||
               course.language === choice.language) &&
             (choice.courseType === "all" || course.type === choice.courseType) &&
-              (choice.courseBoK === "GIST" || course['relation'].includes(`eo4geo:${course.courseBoK}`))
+              (choice.courseBoK === "GIST" || course['relation'].includes(`eo4geo:${choice.courseBoK}`))
           );
         })
       )

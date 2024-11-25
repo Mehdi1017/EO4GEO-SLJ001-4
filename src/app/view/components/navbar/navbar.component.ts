@@ -10,13 +10,14 @@ export class NavbarComponent implements OnInit {
     eqfLevel: string;
     language: string;
     courseType: string;
+    courseBoK: string;
   }> = new EventEmitter();
 
   // default values
   eqfLevel = "all";
   language = "all";
   courseType = "all";
-  courseBoK = "GIST";
+  courseBoK = "IP3-11";
 
   emitFilterChoice() {
     const data = {
@@ -45,6 +46,11 @@ export class NavbarComponent implements OnInit {
 
   filterCourseType(courseType: string) {
     this.courseType = courseType;
+    this.emitFilterChoice();
+  }
+
+  filterCourseBoK(courseBoK: string) {
+    this.courseBoK = courseBoK;
     this.emitFilterChoice();
   }
 
