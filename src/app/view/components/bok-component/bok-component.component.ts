@@ -15,6 +15,8 @@ export class BokComponentComponent implements OnInit {
 
     this.rendered = false;
 
+
+
   }
 
   inputObject = {
@@ -31,15 +33,15 @@ export class BokComponentComponent implements OnInit {
 }
 
   ngOnInit() {
-    //document.getElementsByClassName("svg-content").item(0).addEventListener("click", this.onClick);
-
   }
 
   ngAfterContentChecked() {
     if (!this.rendered) {
-      let element = document.getElementsByClassName("svg-content").item(0);
-      if (element) {
-        element.addEventListener("click", this.onClick, true);
+      let elements = document.getElementsByClassName("node");
+      if (elements.length > 0) {
+        for (let i = 0; i<elements.length; i++) {
+          elements.item(i).addEventListener("click", this.onClick, false);
+        }
         this.rendered = true;
         }
       }

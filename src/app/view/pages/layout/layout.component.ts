@@ -34,24 +34,27 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     // Initialize filteredCourses$ to show all courses initially
     this.filteredCourses$ = this.items;
+
   }
 
   filterCourses(choice: {
     eqfLevel: string;
     language: string;
     courseType: string;
+    courseBoK: string;
   }) {
     this.filteredCourses$ = this.items.pipe(
       map((courses) =>
         courses.filter((course) => {
           // Apply the filters
-
+          console.log(course['relation'].includes(`eo4geo:${course.courseBoK}`));
           return (
             (choice.eqfLevel === "all" ||
               course.educationLevel === choice.eqfLevel) &&
             (choice.language === "all" ||
               course.language === choice.language) &&
-            (choice.courseType === "all" || course.type === choice.courseType)
+            (choice.courseType === "all" || course.type === choice.courseType) &&
+              (choice.courseBoK === "GIST" || course['relation'].includes(`eo4geo:${course.courseBoK}`))
           );
         })
       )

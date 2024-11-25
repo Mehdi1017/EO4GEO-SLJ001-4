@@ -16,12 +16,14 @@ export class NavbarComponent implements OnInit {
   eqfLevel = "all";
   language = "all";
   courseType = "all";
+  courseBoK = "GIST";
 
   emitFilterChoice() {
     const data = {
       eqfLevel: this.eqfLevel,
       language: this.language,
       courseType: this.courseType,
+      courseBoK: this.courseBoK,
     };
 
     this.filterChoice.emit(data);
