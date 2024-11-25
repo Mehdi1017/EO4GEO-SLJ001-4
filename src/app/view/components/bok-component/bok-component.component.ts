@@ -7,9 +7,14 @@ import * as bok from '@eo4geo/find-in-bok-dataviz';
   styleUrls: ['./bok-component.component.scss'],
 })
 export class BokComponentComponent implements OnInit {
+  private rendered;
+
   constructor() {
     // will render the graphical view and the textual view from the current version in database
     bok.visualizeBOKData(this.inputObject);
+
+    this.rendered = false;
+
   }
 
   inputObject = {
@@ -18,7 +23,7 @@ export class BokComponentComponent implements OnInit {
     urls: ['https://eo4geo-uji.firebaseio.com/'], // An array of URLs containing the data to be visualized
     conceptId: 'GIST', // The ID of the concept to visualize (optional)
     versions: true, // A boolean indicating whether to include versions in the visualization (optional)
-    updateUrl: false, // A boolean indicating if url should be updated with the concept id (optional)
+    updateUrl: true, // A boolean indicating if url should be updated with the concept id (optional)
   };
 
   onClick(): void {
@@ -30,16 +35,14 @@ export class BokComponentComponent implements OnInit {
 
   }
 
- /* ngAfterContentChecked() {
+  ngAfterContentChecked() {
     if (!this.rendered) {
-      let element = document.getElementById("bubbles");
+      let element = document.getElementsByClassName("svg-content").item(0);
       if (element) {
-        console.log(element);
-        //element.addEventListener("click", this.onClick, false);
-        //this.rendered = true;
-
-        });
+        element.addEventListener("click", this.onClick, true);
+        this.rendered = true;
+        }
       }
-  }*/
+  }
 
 }
