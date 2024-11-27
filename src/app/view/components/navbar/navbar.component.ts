@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { FilterCoursesService } from "src/app/services/filter-courses.service";
 
 @Component({
   selector: "app-navbar",
@@ -6,53 +7,36 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  @Output() filterChoice: EventEmitter<{
-    eqfLevel: string;
-    language: string;
-    courseType: string;
-    courseBoK: string;
-  }> = new EventEmitter();
-
-  // default values
-  eqfLevel = "all";
-  language = "all";
-  courseType = "all";
-  courseBoK = "IP3-11";
+  @Output() filterChoice: EventEmitter<any> = new EventEmitter();
 
   emitFilterChoice() {
-    const data = {
-      eqfLevel: this.eqfLevel,
-      language: this.language,
-      courseType: this.courseType,
-      courseBoK: this.courseBoK,
-    };
 
-    this.filterChoice.emit(data);
+    this.filterChoice.emit();
   }
 
-  constructor() {}
+  constructor(private fcs: FilterCoursesService) {}
 
   ngOnInit() {}
 
   onEqfChange(eqfLevel: string) {
-    this.eqfLevel = eqfLevel;
+    this.fcs.setEqf(eqfLevel);
     this.emitFilterChoice();
   }
 
   onLanguageChange(language: string) {
-    this.language = language;
+    this.fcs.setLanguage(language);
     this.emitFilterChoice();
   }
 
   filterCourseType(courseType: string) {
-    this.courseType = courseType;
+    this.fcs.setCourseType(courseType);
     this.emitFilterChoice();
   }
 
-  filterCourseBoK(courseBoK: string) {
+  /*filterCourseBoK(courseBoK: string) {
     this.courseBoK = courseBoK;
     this.emitFilterChoice();
-  }
+  }*/
 
   addClass(event: Event) {
     // Remove 'active' class from all links

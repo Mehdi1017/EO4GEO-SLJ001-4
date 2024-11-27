@@ -16,6 +16,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { GetCoursesService } from "src/app/services/GetCourses";
 import { map } from "rxjs/operators";
+import { FilterCoursesService } from "src/app/services/filter-courses.service";
 
 @Component({
   selector: "app-layout",
@@ -27,7 +28,7 @@ export class LayoutComponent implements OnInit {
   filteredCourses$: Observable<any[]>;
 
   // get the data once during app initialization
-  constructor(private getCoursesService: GetCoursesService) {
+  constructor(private getCoursesService: GetCoursesService, private fcs: FilterCoursesService) {
     this.items = getCoursesService.getCourses();
   }
 
@@ -37,12 +38,8 @@ export class LayoutComponent implements OnInit {
 
   }
 
-  filterCourses(choice: {
-    eqfLevel: string;
-    language: string;
-    courseType: string;
-    courseBoK: string;
-  }) {
+  filterCourses() {
+    let choice = this.fcs.getChoices();
     this.filteredCourses$ = this.items.pipe(
       map((courses) =>
         courses.filter((course) => {
