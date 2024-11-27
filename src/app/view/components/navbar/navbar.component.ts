@@ -33,11 +33,6 @@ export class NavbarComponent implements OnInit {
     this.emitFilterChoice();
   }
 
-  /*filterCourseBoK(courseBoK: string) {
-    this.courseBoK = courseBoK;
-    this.emitFilterChoice();
-  }*/
-
   addClass(event: Event) {
     // Remove 'active' class from all links
     const links = document.querySelectorAll(".link");

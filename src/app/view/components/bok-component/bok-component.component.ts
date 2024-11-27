@@ -1,5 +1,6 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, SimpleChanges} from '@angular/core';
 import * as bok from '@eo4geo/find-in-bok-dataviz';
+import { FilterCoursesService } from "src/app/services/filter-courses.service";
 
 
 
@@ -9,15 +10,15 @@ import * as bok from '@eo4geo/find-in-bok-dataviz';
   styleUrls: ['./bok-component.component.scss'],
 })
 export class BokComponentComponent implements OnInit {
+  @Output() filterChoice: EventEmitter<any> = new EventEmitter();
+
   private rendered;
 
-  constructor() {
+  constructor(private fcs: FilterCoursesService) {
     // will render the graphical view and the textual view from the current version in database
     bok.visualizeBOKData(this.inputObject);
 
     this.rendered = false;
-
-
 
   }
 
@@ -30,8 +31,15 @@ export class BokComponentComponent implements OnInit {
     updateUrl: true, // A boolean indicating if url should be updated with the concept id (optional)
   };
 
+  emitFilterChoice() {
+    this.filterChoice.emit();
+  }
+
   onClick(): void {
-  console.log(window.location.pathname.slice(1));
+    this.fcs.setCourseBoK(window.location.pathname.slice(1));
+
+    this.emitFilterChoice();
+    console.log(window.location.pathname.slice(1));
 
 }
 
@@ -43,7 +51,7 @@ export class BokComponentComponent implements OnInit {
       let elements = document.getElementsByClassName("node");
       if (elements.length > 0) {
         for (let i = 0; i<elements.length; i++) {
-          elements.item(i).addEventListener("click", this.onClick);
+          elements.item(i).addEventListener("click", this.onClick.bind(this));
         }
         this.rendered = true;
         }

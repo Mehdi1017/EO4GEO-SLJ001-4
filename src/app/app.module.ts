@@ -29,6 +29,7 @@ import { CardComponent } from "./view/components/card/card.component";
 import { CourseWrapperComponent } from "./view/components/course-wrapper/course-wrapper.component";
 import { NavbarComponent } from "./view/components/navbar/navbar.component";
 import { BokComponentComponent } from "./view/components/bok-component/bok-component.component";
+import { FilterCoursesService } from "./services/filter-courses.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { BokComponentComponent } from "./view/components/bok-component/bok-compo
     CardComponent,
     CourseWrapperComponent,
     NavbarComponent,
-    BokComponentComponent,
+    BokComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ import { BokComponentComponent } from "./view/components/bok-component/bok-compo
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, FilterCoursesService],
   bootstrap: [AppComponent],
   exports: [LayoutComponent],
 })

@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class FilterCoursesService {
   // default values
   private choice = {
-  eqfLevel : "all",
-  language : "all",
-  courseType : "all",
-  courseBoK : 'GIST'
+    eqfLevel : "all",
+    language : "all",
+    courseType : "all",
+    courseBoK : 'GIST'
   }
 
 
@@ -28,6 +28,7 @@ export class FilterCoursesService {
   }
 
   setCourseBoK(courseBoK: string) {
+    console.log(this.choice.courseBoK);
     this.choice.courseBoK = courseBoK;
   }
 
