@@ -45,13 +45,21 @@ export class LayoutComponent implements OnInit {
         courses.filter((course) => {
           // Apply the filters
           console.log(choice.courseBoK);
+          function isInArray() {
+            for (const relation of course['relation']) {
+              if (relation.includes(`eo4geo:${choice.courseBoK}`)){
+                return true;
+              }
+            }
+            return false;
+          }
           return (
             (choice.eqfLevel === "all" ||
               course.educationLevel === choice.eqfLevel) &&
             (choice.language === "all" ||
               course.language === choice.language) &&
             (choice.courseType === "all" || course.type === choice.courseType) &&
-              (choice.courseBoK === "GIST" || course['relation'].includes(`eo4geo:${choice.courseBoK}`))
+              (choice.courseBoK === "GIST" || isInArray())
           );
         })
       )

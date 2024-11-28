@@ -46,12 +46,13 @@ export class BokComponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  // addEventListener on all of the nodes because doesnt work if added on parent
   ngAfterContentChecked() {
     if (!this.rendered) {
       let elements = document.getElementsByClassName("node");
       if (elements.length > 0) {
         for (let i = 0; i<elements.length; i++) {
-          elements.item(i).addEventListener("click", this.onClick.bind(this));
+          elements.item(i).addEventListener("click", this.onClick.bind(this)); //Binding component to plain JS function for service injection
         }
         this.rendered = true;
         }
