@@ -9,8 +9,10 @@ export class CardComponent implements OnInit {
   @Input() course: {};
 
   constructor() {
-    console.log(this.course);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    //console.log(this.course['relation'].includes("eo4geo:" + "IP3-11"));
+  }
 }

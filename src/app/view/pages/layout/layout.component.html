@@ -2,7 +2,7 @@
 <app-introduction></app-introduction>
 <app-navbar (filterChoice)="filterCourses($event)"></app-navbar>
 <div class="bok-course-container">
-  <app-bok-component></app-bok-component>
+  <app-bok-component (filterChoice)="filterCourses($event)"></app-bok-component>
   <app-course-wrapper [courseJSON]="filteredCourses$"> </app-course-wrapper>
 </div>
 
