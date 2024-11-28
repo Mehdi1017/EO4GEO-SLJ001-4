@@ -10,7 +10,6 @@ export class NavbarComponent implements OnInit {
   @Output() filterChoice: EventEmitter<any> = new EventEmitter();
 
   emitFilterChoice() {
-
     this.filterChoice.emit();
   }
 
@@ -31,15 +30,5 @@ export class NavbarComponent implements OnInit {
   filterCourseType(courseType: string) {
     this.fcs.setCourseType(courseType);
     this.emitFilterChoice();
-  }
-
-  addClass(event: Event) {
-    // Remove 'active' class from all links
-    const links = document.querySelectorAll(".link");
-    links.forEach((link) => link.classList.remove("active"));
-
-    // Add 'active' class to the clicked link
-    const clickedLink = event.target as HTMLElement;
-    clickedLink.classList.add("active");
   }
 }
