@@ -1,55 +1,116 @@
 <div class="course-filter-navbar">
   <div class="form-filter">
+    <div class="search-bar">
+      <input type="text" placeholder="find learning materials..." />
+      <button class="search-btn">Search</button>
+    </div>
+
     <div class="form-field">
-      <label for="level">EQF Level</label>
-      <select
+      <label for="level" class="accordion-title"
+        >EQF Level <i class="dropdown-icon fa fa-chevron-down"></i
+      ></label>
+      <div
+        class="checkbox-container active"
         id="level"
         name="dropdownName"
         (change)="onEqfChange($event.target.value)"
       >
-        <option value="all">All EQF Levels</option>
-        <option value="EQF 3">Level 3</option>
-        <option value="EQF 4">Level 4</option>
-        <option value="EQF 5">Level 5</option>
-        <option value="EQF 6">Level 6</option>
-        <option value="EQF 7">Level 7</option>
-        <option value="EQF 8">Level 8</option>
-      </select>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="all" /> All EQF Levels
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 3" /> Level 3
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 4" /> Level 4
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 5" /> Level 5
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 6" /> Level 6
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 7" /> Level 7
+        </label>
+        <label>
+          <input type="checkbox" name="eqfLevels" value="EQF 8" /> Level 8
+        </label>
+      </div>
     </div>
 
     <div class="form-field">
-      <label for="language">Language</label>
-      <select
+      <label for="language" class="accordion-title"
+        >Language <i class="dropdown-icon fa fa-chevron-down"></i
+      ></label>
+      <div
+        class="checkbox-container"
         id="language"
         name="dropdownName"
         (change)="onLanguageChange($event.target.value)"
       >
-        <option value="all">All Languages</option>
-        <option value="EN">English</option>
-        <option value="DE">German</option>
-        <option value="IT">Italian</option>
-        <option value="SLO">Slovenien</option>
-        <option value="ES">Spanish</option>
-      </select>
+        <label>
+          <input type="checkbox" name="languages" value="all" /> All Languages
+        </label>
+        <label>
+          <input type="checkbox" name="languages" value="EN" /> English
+        </label>
+        <label>
+          <input type="checkbox" name="languages" value="DE" /> German
+        </label>
+        <label>
+          <input type="checkbox" name="languages" value="IT" /> Italian
+        </label>
+        <label>
+          <input type="checkbox" name="languages" value="SLO" /> Slovenien
+        </label>
+        <label>
+          <input type="checkbox" name="languages" value="ES" /> Spanish
+        </label>
+      </div>
     </div>
 
     <div class="form-field">
-      <label for="courseType">Course Type</label>
-      <select id="courseType" (change)="filterCourseType($event.target.value)">
-        <option value="all">All</option>
-        <option value="course">Courses</option>
-        <option value="lecture">Lectures</option>
-        <option value="self-learning material">Self learning materials</option>
-        <option value="teaching material">Teaching materials</option>
-        <option value="learning material">Videos</option>
-        <option value="webinar">Webinars</option>
-        <option value="workshop">Workshop</option>
-      </select>
+      <label for="courseType" class="accordion-title"
+        >Course Type <i class="dropdown-icon fa fa-chevron-down"></i
+      ></label>
+      <div
+        id="courseType"
+        class="checkbox-container"
+        (change)="filterCourseType($event.target.value)"
+      >
+        <label>
+          <input type="checkbox" name="contentType" value="all" /> All
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="course" /> Courses
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="lecture" /> Lectures
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="contentType"
+            value="self-learning material"
+          />
+          Self-learning materials
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="teaching material" />
+          Teaching materials
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="learning material" />
+          Videos
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="webinar" /> Webinars
+        </label>
+        <label>
+          <input type="checkbox" name="contentType" value="workshop" /> Workshop
+        </label>
+      </div>
     </div>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="find learning materials..." />
-    <button class="search-btn">Search</button>
   </div>
 </div>

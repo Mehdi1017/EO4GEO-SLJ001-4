@@ -1,35 +1,57 @@
 .course-filter-navbar {
-  margin: 16px 32px;
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0px;
-  background-color: white;
-  z-index: 232;
-  padding: 32px 8px 0px;
+  width: 100%;
+  margin-bottom: 16px;
+  // border: 2px solid red;
 
-  .form-field {
-    label {
-      width: 110px;
+  .form-filter {
+    .accordion-title {
+      font-weight: 500;
+      width: 100%;
+      padding: 4px;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.13);
+        cursor: pointer;
+      }
+
+      .dropdown-icon {
+        float: right;
+      }
     }
 
-    select {
-      width: 200px;
+    .checkbox-container {
+      width: 100%;
+      display: none;
+
+      label {
+        width: 100%;
+
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+
+    .active {
+      display: block;
     }
   }
 
   .search-bar {
-    float: right;
+    margin-bottom: 32px;
+    width: 100%;
 
     input {
+      width: 82%;
       border-radius: 2px;
       font-size: 14px;
       padding: 4px 6px;
-      width: 260px;
       margin-right: 12px;
     }
 
     .search-btn {
+      width: 15%;
       border-radius: 2px;
       padding: 3px 6px;
     }
