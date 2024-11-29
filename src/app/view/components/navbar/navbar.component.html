@@ -15,7 +15,8 @@
             type="checkbox"
             name="eqfLevels"
             value="all"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
+            checked
           />
           All EQF Levels
         </label>
@@ -24,7 +25,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 3"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 3
         </label>
@@ -33,7 +34,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 4"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 4
         </label>
@@ -42,7 +43,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 5"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 5
         </label>
@@ -51,7 +52,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 6"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 6
         </label>
@@ -60,7 +61,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 7"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 7
         </label>
@@ -69,7 +70,7 @@
             type="checkbox"
             name="eqfLevels"
             value="EQF 8"
-            (change)="onEqfChange($event.target.checked, $event.target.value)"
+            (change)="onEqfChange($event.target.value)"
           />
           Level 8
         </label>
@@ -86,9 +87,8 @@
             type="checkbox"
             name="languages"
             value="all"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            checked
+            (change)="onLanguageChange($event.target.value)"
           />
           All Languages
         </label>
@@ -97,9 +97,7 @@
             type="checkbox"
             name="languages"
             value="EN"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            (change)="onLanguageChange($event.target.value)"
           />
           English
         </label>
@@ -108,9 +106,7 @@
             type="checkbox"
             name="languages"
             value="DE"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            (change)="onLanguageChange($event.target.value)"
           />
           German
         </label>
@@ -119,9 +115,7 @@
             type="checkbox"
             name="languages"
             value="IT"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            (change)="onLanguageChange($event.target.value)"
           />
           Italian
         </label>
@@ -130,9 +124,7 @@
             type="checkbox"
             name="languages"
             value="SLO"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            (change)="onLanguageChange($event.target.value)"
           />
           Slovenien
         </label>
@@ -141,9 +133,7 @@
             type="checkbox"
             name="languages"
             value="ES"
-            (change)="
-              onLanguageChange($event.target.checked, $event.target.value)
-            "
+            (change)="onLanguageChange($event.target.value)"
           />
           Spanish
         </label>
@@ -160,9 +150,8 @@
             type="checkbox"
             name="contentType"
             value="all"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            checked
+            (change)="filterCourseType($event.target.value)"
           />
           All
         </label>
@@ -171,9 +160,7 @@
             type="checkbox"
             name="contentType"
             value="course"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Courses
         </label>
@@ -182,9 +169,7 @@
             type="checkbox"
             name="contentType"
             value="lecture"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Lectures
         </label>
@@ -193,9 +178,7 @@
             type="checkbox"
             name="contentType"
             value="self-learning material"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Self-learning materials
         </label>
@@ -204,9 +187,7 @@
             type="checkbox"
             name="contentType"
             value="teaching material"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Teaching materials
         </label>
@@ -215,9 +196,7 @@
             type="checkbox"
             name="contentType"
             value="learning material"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Videos
         </label>
@@ -226,9 +205,7 @@
             type="checkbox"
             name="contentType"
             value="webinar"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Webinars
         </label>
@@ -237,9 +214,7 @@
             type="checkbox"
             name="contentType"
             value="workshop"
-            (change)="
-              filterCourseType($event.target.checked, $event.target.value)
-            "
+            (change)="filterCourseType($event.target.value)"
           />
           Workshop
         </label>

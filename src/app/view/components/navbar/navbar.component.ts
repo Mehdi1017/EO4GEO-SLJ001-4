@@ -11,24 +11,15 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  onEqfChange(isChecked: boolean, eqfLevel: string) {
-    if (isChecked) {
-      this.fcs.setEqf(eqfLevel);
-      console.log(isChecked, eqfLevel);
-    }
+  onEqfChange(eqfLevel: string) {
+    this.fcs.setEqf(eqfLevel);
   }
 
-  onLanguageChange(isChecked: boolean, language: string) {
-    if (isChecked) {
-      this.fcs.setLanguage(language);
-      console.log(isChecked, language);
-    }
+  onLanguageChange(language: string) {
+    this.fcs.setLanguage(language);
   }
 
-  filterCourseType(isChecked: boolean, courseType: string) {
-    if (isChecked) {
-      this.fcs.setCourseType(courseType);
-      console.log(isChecked, courseType);
-    }
+  filterCourseType(courseType: string) {
+    this.fcs.setCourseType(courseType);
   }
 }
