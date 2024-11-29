@@ -33,9 +33,8 @@ export class BokComponentComponent implements OnInit {
   };
 
   onClick(): void {
+    // extracts the bok id such as PP
     this.fcs.setCourseBoK(window.location.pathname.slice(1));
-
-    console.log(window.location.pathname.slice(1));
   }
 
   ngOnInit() {}
