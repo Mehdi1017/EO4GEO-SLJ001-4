@@ -20,8 +20,6 @@ export class FilterCoursesService {
   constructor() {}
 
   getChoices() {
-    console.log("I was here, Bibek.");
-    console.log(this.choice);
     return this.choice;
   }
 
@@ -51,8 +49,8 @@ export class FilterCoursesService {
   }
 
   setCourseBoK(courseBoK: string) {
-    console.log(this.choice.courseBoK);
     this.choice.courseBoK = courseBoK;
+    this.choiceSubject.next(this.choice); // Emit the updated state
   }
 
   setCourseType(courseType: string) {
