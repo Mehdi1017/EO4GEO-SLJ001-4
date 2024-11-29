@@ -1,0 +1,66 @@
+.course-filter-navbar {
+  width: 100%;
+  margin-bottom: 16px;
+  // border: 2px solid red;
+
+  .form-filter {
+    .accordion-title {
+      font-weight: 500;
+      width: 100%;
+      padding: 4px;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.13);
+        cursor: pointer;
+      }
+
+      .dropdown-icon {
+        float: right;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .checkbox-container {
+      width: 100%;
+      padding-left: 8px;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s ease, padding 0.3s ease;
+      padding: 0 1rem;
+      box-sizing: border-box;
+
+      label {
+        width: 100%;
+
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+
+    .active {
+      height: auto;
+      padding: 1rem 1rem;
+    }
+  }
+
+  .search-bar {
+    margin-bottom: 32px;
+    width: 100%;
+
+    input {
+      width: 82%;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 4px 6px;
+      margin-right: 8px;
+    }
+
+    .search-btn {
+      width: 16%;
+      border-radius: 2px;
+      padding: 3px 4px;
+    }
+  }
+}

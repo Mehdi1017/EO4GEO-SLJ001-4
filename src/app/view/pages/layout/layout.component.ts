@@ -28,38 +28,49 @@ export class LayoutComponent implements OnInit {
   filteredCourses$: Observable<any[]>;
 
   // get the data once during app initialization
-  constructor(private getCoursesService: GetCoursesService, private fcs: FilterCoursesService) {
+  constructor(
+    private getCoursesService: GetCoursesService,
+    private fcs: FilterCoursesService
+  ) {
     this.items = getCoursesService.getCourses();
   }
 
   ngOnInit() {
+    // Subscribe to filter changes from the course-filter service; if anything in course choice changes, it is invoked!
+    this.fcs.choice$.subscribe(() => {
+      this.filterCourses(); // Call the filter function whenever filters change
+    });
+
     // Initialize filteredCourses$ to show all courses initially
     this.filteredCourses$ = this.items;
-
   }
 
+  // this method checks if the user choice bok id is present in the course or not; if present returns true to render that course
+  isBoKIdExists(course: any, choice: any) {
+    for (const relation of course["relation"]) {
+      if (relation.includes(`eo4geo:${choice.courseBoK}`)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // this functions filters our course cards based on different choices; All are provided a default value
   filterCourses() {
     let choice = this.fcs.getChoices();
     this.filteredCourses$ = this.items.pipe(
       map((courses) =>
         courses.filter((course) => {
           // Apply the filters
-          console.log(choice.courseBoK);
-          function isInArray() {
-            for (const relation of course['relation']) {
-              if (relation.includes(`eo4geo:${choice.courseBoK}`)){
-                return true;
-              }
-            }
-            return false;
-          }
+
           return (
-            (choice.eqfLevel === "all" ||
-              course.educationLevel === choice.eqfLevel) &&
-            (choice.language === "all" ||
-              course.language === choice.language) &&
-            (choice.courseType === "all" || course.type === choice.courseType) &&
-              (choice.courseBoK === "GIST" || isInArray())
+            (choice.eqfLevel.includes("all") ||
+              choice.eqfLevel.includes(course.educationLevel)) &&
+            (choice.language.includes("all") ||
+              choice.language.includes(course.language)) &&
+            (choice.courseType.includes("all") ||
+              choice.courseType.includes(course.type)) &&
+            (choice.courseBoK === "GIST" || this.isBoKIdExists(course, choice))
           );
         })
       )
