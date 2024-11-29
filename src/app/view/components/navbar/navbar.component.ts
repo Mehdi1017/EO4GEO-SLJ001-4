@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FilterCoursesService } from "src/app/services/filter-courses.service";
 
 @Component({
@@ -7,28 +7,28 @@ import { FilterCoursesService } from "src/app/services/filter-courses.service";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  @Output() filterChoice: EventEmitter<any> = new EventEmitter();
-
-  emitFilterChoice() {
-    this.filterChoice.emit();
-  }
-
   constructor(private fcs: FilterCoursesService) {}
 
   ngOnInit() {}
 
-  onEqfChange(eqfLevel: string) {
-    this.fcs.setEqf(eqfLevel);
-    this.emitFilterChoice();
+  onEqfChange(isChecked: boolean, eqfLevel: string) {
+    if (isChecked) {
+      this.fcs.setEqf(eqfLevel);
+      console.log(isChecked, eqfLevel);
+    }
   }
 
-  onLanguageChange(language: string) {
-    this.fcs.setLanguage(language);
-    this.emitFilterChoice();
+  onLanguageChange(isChecked: boolean, language: string) {
+    if (isChecked) {
+      this.fcs.setLanguage(language);
+      console.log(isChecked, language);
+    }
   }
 
-  filterCourseType(courseType: string) {
-    this.fcs.setCourseType(courseType);
-    this.emitFilterChoice();
+  filterCourseType(isChecked: boolean, courseType: string) {
+    if (isChecked) {
+      this.fcs.setCourseType(courseType);
+      console.log(isChecked, courseType);
+    }
   }
 }

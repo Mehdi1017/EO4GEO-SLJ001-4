@@ -9,32 +9,69 @@
       <label for="level" class="accordion-title"
         >EQF Level <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div
-        class="checkbox-container active"
-        id="level"
-        name="dropdownName"
-        (change)="onEqfChange($event.target.value)"
-      >
+      <div class="checkbox-container active" id="level" name="dropdownName">
         <label>
-          <input type="checkbox" name="eqfLevels" value="all" /> All EQF Levels
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="all"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          All EQF Levels
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 3" /> Level 3
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 3"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 3
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 4" /> Level 4
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 4"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 4
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 5" /> Level 5
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 5"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 5
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 6" /> Level 6
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 6"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 6
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 7" /> Level 7
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 7"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 7
         </label>
         <label>
-          <input type="checkbox" name="eqfLevels" value="EQF 8" /> Level 8
+          <input
+            type="checkbox"
+            name="eqfLevels"
+            value="EQF 8"
+            (change)="onEqfChange($event.target.checked, $event.target.value)"
+          />
+          Level 8
         </label>
       </div>
     </div>
@@ -43,29 +80,72 @@
       <label for="language" class="accordion-title"
         >Language <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div
-        class="checkbox-container"
-        id="language"
-        name="dropdownName"
-        (change)="onLanguageChange($event.target.value)"
-      >
+      <div class="checkbox-container" id="language" name="dropdownName">
         <label>
-          <input type="checkbox" name="languages" value="all" /> All Languages
+          <input
+            type="checkbox"
+            name="languages"
+            value="all"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          All Languages
         </label>
         <label>
-          <input type="checkbox" name="languages" value="EN" /> English
+          <input
+            type="checkbox"
+            name="languages"
+            value="EN"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          English
         </label>
         <label>
-          <input type="checkbox" name="languages" value="DE" /> German
+          <input
+            type="checkbox"
+            name="languages"
+            value="DE"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          German
         </label>
         <label>
-          <input type="checkbox" name="languages" value="IT" /> Italian
+          <input
+            type="checkbox"
+            name="languages"
+            value="IT"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          Italian
         </label>
         <label>
-          <input type="checkbox" name="languages" value="SLO" /> Slovenien
+          <input
+            type="checkbox"
+            name="languages"
+            value="SLO"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          Slovenien
         </label>
         <label>
-          <input type="checkbox" name="languages" value="ES" /> Spanish
+          <input
+            type="checkbox"
+            name="languages"
+            value="ES"
+            (change)="
+              onLanguageChange($event.target.checked, $event.target.value)
+            "
+          />
+          Spanish
         </label>
       </div>
     </div>
@@ -74,41 +154,94 @@
       <label for="courseType" class="accordion-title"
         >Course Type <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div
-        id="courseType"
-        class="checkbox-container"
-        (change)="filterCourseType($event.target.value)"
-      >
+      <div id="courseType" class="checkbox-container">
         <label>
-          <input type="checkbox" name="contentType" value="all" /> All
+          <input
+            type="checkbox"
+            name="contentType"
+            value="all"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
+          All
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="course" /> Courses
+          <input
+            type="checkbox"
+            name="contentType"
+            value="course"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
+          Courses
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="lecture" /> Lectures
+          <input
+            type="checkbox"
+            name="contentType"
+            value="lecture"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
+          Lectures
         </label>
         <label>
           <input
             type="checkbox"
             name="contentType"
             value="self-learning material"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
           />
           Self-learning materials
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="teaching material" />
+          <input
+            type="checkbox"
+            name="contentType"
+            value="teaching material"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
           Teaching materials
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="learning material" />
+          <input
+            type="checkbox"
+            name="contentType"
+            value="learning material"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
           Videos
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="webinar" /> Webinars
+          <input
+            type="checkbox"
+            name="contentType"
+            value="webinar"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
+          Webinars
         </label>
         <label>
-          <input type="checkbox" name="contentType" value="workshop" /> Workshop
+          <input
+            type="checkbox"
+            name="contentType"
+            value="workshop"
+            (change)="
+              filterCourseType($event.target.checked, $event.target.value)
+            "
+          />
+          Workshop
         </label>
       </div>
     </div>
