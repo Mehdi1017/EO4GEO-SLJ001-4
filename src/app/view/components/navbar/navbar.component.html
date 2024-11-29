@@ -6,10 +6,18 @@
     </div>
 
     <div class="form-field">
-      <label for="level" class="accordion-title"
+      <label
+        for="level"
+        class="accordion-title"
+        (click)="toggleFitler('isEQFLevelActive')"
         >EQF Level <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div class="checkbox-container active" id="level" name="dropdownName">
+      <div
+        class="checkbox-container"
+        [ngClass]="isEQFLevelActive ? 'active' : ''"
+        id="level"
+        name="dropdownName"
+      >
         <label>
           <input
             type="checkbox"
@@ -78,10 +86,18 @@
     </div>
 
     <div class="form-field">
-      <label for="language" class="accordion-title"
+      <label
+        for="language"
+        class="accordion-title"
+        (click)="toggleFitler('isLanguageActive')"
         >Language <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div class="checkbox-container" id="language" name="dropdownName">
+      <div
+        class="checkbox-container"
+        [ngClass]="isLanguageActive ? 'active' : ''"
+        id="language"
+        name="dropdownName"
+      >
         <label>
           <input
             type="checkbox"
@@ -141,10 +157,17 @@
     </div>
 
     <div class="form-field">
-      <label for="courseType" class="accordion-title"
+      <label
+        for="courseType"
+        class="accordion-title"
+        (click)="toggleFitler('isCourseTypeActive')"
         >Course Type <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
-      <div id="courseType" class="checkbox-container">
+      <div
+        id="courseType"
+        class="checkbox-container"
+        [ngClass]="isCourseTypeActive ? 'active' : ''"
+      >
         <label>
           <input
             type="checkbox"

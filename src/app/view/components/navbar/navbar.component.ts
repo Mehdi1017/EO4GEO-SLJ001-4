@@ -9,6 +9,11 @@ import { FilterCoursesService } from "src/app/services/filter-courses.service";
 export class NavbarComponent implements OnInit {
   constructor(private fcs: FilterCoursesService) {}
 
+  // boolean to toggle accordion
+  isEQFLevelActive = false;
+  isLanguageActive = false;
+  isCourseTypeActive = false;
+
   ngOnInit() {}
 
   onEqfChange(eqfLevel: string) {
@@ -21,5 +26,9 @@ export class NavbarComponent implements OnInit {
 
   filterCourseType(courseType: string) {
     this.fcs.setCourseType(courseType);
+  }
+
+  toggleFitler(accordion: string) {
+    this[accordion] = !this[accordion];
   }
 }

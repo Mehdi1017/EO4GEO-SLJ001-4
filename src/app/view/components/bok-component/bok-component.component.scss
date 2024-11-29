@@ -1,4 +1,6 @@
 .container {
+  width: 450px;
+  overflow: hidden;
   position: sticky;
   top: 16px;
   height: 100vh;
@@ -6,7 +8,7 @@
 }
 
 #bubbles {
-  width: 450px;
+  width: 100%;
 }
 
 #textInfo {
@@ -19,13 +21,13 @@
 }
 
 @media screen and (min-width: 1400px) {
-  #bubbles {
+  .container {
     width: 550px;
   }
 }
 
 @media screen and (min-width: 1800px) {
-  #bubbles {
+  .container {
     width: 700px;
   }
 }
