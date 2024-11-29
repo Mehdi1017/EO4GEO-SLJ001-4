@@ -27,7 +27,7 @@ import {
 import { IntroductionComponent } from "./view/components/introduction/introduction.component";
 import { CardComponent } from "./view/components/card/card.component";
 import { CourseWrapperComponent } from "./view/components/course-wrapper/course-wrapper.component";
-import { NavbarComponent } from "./view/components/navbar/navbar.component";
+import { FilterAccordionComponent } from "./view/components/filter-accordion/filter-accordion.component";
 import { BokComponentComponent } from "./view/components/bok-component/bok-component.component";
 import { FilterCoursesService } from "./services/filter-courses.service";
 
@@ -44,8 +44,8 @@ import { FilterCoursesService } from "./services/filter-courses.service";
     IntroductionComponent,
     CardComponent,
     CourseWrapperComponent,
-    NavbarComponent,
-    BokComponentComponent
+    FilterAccordionComponent,
+    BokComponentComponent,
   ],
   imports: [
     BrowserModule,
