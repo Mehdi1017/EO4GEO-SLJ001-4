@@ -1,6 +1,6 @@
 <app-header> </app-header>
 <app-introduction></app-introduction>
-<app-navbar (filterChoice)="filterCourses($event)"></app-navbar>
+<!-- <app-navbar (filterChoice)="filterCourses($event)"></app-navbar> -->
 <div class="bok-course-container">
   <app-bok-component (filterChoice)="filterCourses($event)"></app-bok-component>
   <app-course-wrapper [courseJSON]="filteredCourses$"> </app-course-wrapper>

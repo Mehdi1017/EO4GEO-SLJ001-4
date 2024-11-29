@@ -1,7 +1,12 @@
-#bubbles {
-  width: 470px;
+.container {
   position: sticky;
-  top: 140px;
+  top: 16px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#bubbles {
+  width: 450px;
 }
 
 #textInfo {
@@ -21,6 +26,6 @@
 
 @media screen and (min-width: 1800px) {
   #bubbles {
-    width: 750px;
+    width: 700px;
   }
 }
