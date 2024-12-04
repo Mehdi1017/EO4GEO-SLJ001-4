@@ -12,6 +12,8 @@
         (click)="toggleFitler('isEQFLevelActive')"
         >EQF Level <i class="dropdown-icon fa fa-chevron-down"></i
       ></label>
+      <ngx-charts-bar-horizontal-stacked [results]="scopeGraph" [scheme]="colorScheme5" [view]="view">
+      </ngx-charts-bar-horizontal-stacked>
       <div
         class="checkbox-container"
         [ngClass]="isEQFLevelActive ? 'active' : ''"

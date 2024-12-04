@@ -7,6 +7,29 @@ import { FilterCoursesService } from "src/app/services/filter-courses.service";
   styleUrls: ["./filter-accordion.component.scss"],
 })
 export class FilterAccordionComponent implements OnInit {
+
+  colorScheme5 = {
+    domain: ['#751A1D', '#EE9B00', '#E9D8A6', '#94D2BD', '#002E3D']
+  };
+
+  scopeGraph = [
+    {
+        'name': 'Scope',
+        'series': [
+          {
+            'name': 'Local',
+            'value': 70
+          },
+          {
+            'name': 'Regional',
+            'value': 55
+          }
+        ]
+      }
+    ];
+
+  view = [null, 50];
+
   constructor(private fcs: FilterCoursesService) {}
 
   // boolean to toggle accordion
