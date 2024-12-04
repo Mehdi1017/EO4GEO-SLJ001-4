@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FilterCoursesService } from "src/app/services/filter-courses.service";
+import { GetCoursesService } from "src/app/services/GetCourses";
+import { map } from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: "app-filter-accordion",
@@ -12,32 +15,53 @@ export class FilterAccordionComponent implements OnInit {
     domain: ['#751A1D', '#EE9B00', '#E9D8A6', '#94D2BD', '#002E3D']
   };
 
-  scopeGraph = [
-    {
-        'name': 'Scope',
-        'series': [
-          {
-            'name': 'Local',
-            'value': 70
-          },
-          {
-            'name': 'Regional',
-            'value': 55
-          }
-        ]
-      }
-    ];
+  colorScheme10 = {
+    domain: ['#751A1D', '#AE2012', '#CA6702', '#EE9B00', '#E9D8A6', '#94D2BD', '#0A9396', '#005F73', '#002E3D', '#002229']
+  };
+
+  eqfGraph$: Observable<any>;
 
   view = [null, 50];
 
-  constructor(private fcs: FilterCoursesService) {}
+  constructor(private fcs: FilterCoursesService, private getCourses: GetCoursesService) {}
 
   // boolean to toggle accordion
   isEQFLevelActive = false;
   isLanguageActive = false;
   isCourseTypeActive = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.eqfGraph$ = this.getCourses.countEqf().pipe(map(counts => ({
+        'name': 'EQF levels',
+        'series': [  
+      {
+        'name': 'Eqf 3',
+        'value': counts["EQF 3"] + counts["EQF 3-4"]
+      },
+      {
+        'name': 'Eqf 4',
+        'value':  counts["EQF 4"] + counts["EQF 3-4"] + counts["EQF 4 / 6"]
+      },
+      {
+        'name': 'Eqf 5',
+        'value':  counts["EQF 5"] + counts["EQF 5 to 8"] + counts["EQF 5/6/7"] + counts["EQF 4 / 6"]
+      },
+      {
+        'name': 'Eqf 6',
+        'value':  counts["EQF 6"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF 6;"] + counts["EQF level:6/7"] + counts["EQF 4 / 6"]
+      },
+      {
+        'name': 'Eqf 7',
+        'value':  counts["EQF 7"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF level:6/7"]
+      },
+      {
+        'name': 'Eqf 8',
+        'value':  counts["EQF 8"] + counts["EQF 5 to 8"]
+      }
+      ]
+    }))
+    );
+  }
 
   onEqfChange(eqfLevel: string) {
     this.fcs.setEqf(eqfLevel);
