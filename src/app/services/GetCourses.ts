@@ -9,21 +9,15 @@ import { map } from 'rxjs/operators';
 export class GetCoursesService {
   private items: Observable<any[]>;
 
-  private countEqf3: number;
-  private countEqf4: number;
-  private countEqf5: number;
-  private countEqf6: number;
-  private countEqf7: number;
-  private countEqf8: number;
-
   eqfCounts: { [key: string]: number } = {}
-  collection;
+  
+  snapItems:  Observable<any[]>;
 
   constructor(db: AngularFirestore) {
-    this.collection = db.collection('Courses');
-    this.items = this.collection.valueChanges();
-    //this.countEqf();
-
+    const collection = db.collection('Courses');
+    this.items = collection.valueChanges();
+    this.snapItems = collection.snapshotChanges();
+    this.countEqf();
     console.log(this.eqfCounts);
   }
 
@@ -31,18 +25,22 @@ export class GetCoursesService {
     return this.items;
   }
 
-  countEqf(){
-    console.log("hola");
-    const snapItem : Observable<any[]> = this.collection.snapshotChanges();
-    snapItem.pipe(
+  getEqfCounts(){
+    return this.countEqf;
+  }
+
+  countEqf(){  
+    this.snapItems.pipe(
       map(actions => actions.map(a => {
           const data = a.payload.doc.data() as any;
-          console.log(data);
           const eqf = data.educationLevel;
           if (this.eqfCounts[eqf]) {
             this.eqfCounts[eqf]++;
-            console.log("hola");}
-          else { this.eqfCounts[eqf] = 1; }
-        })));
+          }
+          else { 
+            this.eqfCounts[eqf] = 1; 
+          }
+        }))
+      ).subscribe();
   }
 }
