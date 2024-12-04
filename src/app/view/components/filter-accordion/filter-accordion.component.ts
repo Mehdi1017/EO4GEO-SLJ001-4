@@ -19,7 +19,7 @@ export class FilterAccordionComponent implements OnInit {
     domain: ['#751A1D', '#AE2012', '#CA6702', '#EE9B00', '#E9D8A6', '#94D2BD', '#0A9396', '#005F73', '#002E3D', '#002229']
   };
 
-  eqfGraph$: Observable<any>;
+  eqfGraph$: Observable<any[]>;
 
   view = [null, 50];
 
@@ -31,7 +31,8 @@ export class FilterAccordionComponent implements OnInit {
   isCourseTypeActive = false;
 
   ngOnInit() {
-    this.eqfGraph$ = this.getCourses.countEqf().pipe(map(counts => ({
+    this.eqfGraph$ = this.getCourses.countEqf().pipe(map(counts => {
+      return [{
         'name': 'EQF levels',
         'series': [  
       {
@@ -59,8 +60,10 @@ export class FilterAccordionComponent implements OnInit {
         'value':  counts["EQF 8"] + counts["EQF 5 to 8"]
       }
       ]
-    }))
+    }]})
     );
+
+    this.eqfGraph$.subscribe((elements) => console.log(elements));
   }
 
   onEqfChange(eqfLevel: string) {
