@@ -21,10 +21,29 @@ export class GetCoursesService {
     return this.items;
   }
 
-  countEqf(): Observable<{ [key: string]: number}> {  
+  countCategory(category: string): Observable<{ [key: string]: number}> {  
     return this.snapItems.pipe(
       map(actions =>  {
-          const eqfCounts: { [key: string]: number } = {};
+          const categoryCounts: { [key: string]: number } = {};
+          actions.forEach(a => {
+          const data = a.payload.doc.data() as any;
+          const element = data[category];
+          if (categoryCounts[element]) {
+            categoryCounts[element]++;
+          }
+          else { 
+            categoryCounts[element] = 1; 
+          }
+        });
+        return categoryCounts;
+      })
+    );
+  }
+
+  /*countLanguage(): Observable<{ [key: string]: number}> {  
+    return this.snapItems.pipe(
+      map(actions =>  {
+          const languageCounts: { [key: string]: number } = {};
           actions.forEach(a => {
           const data = a.payload.doc.data() as any;
           const eqf = data.educationLevel;
@@ -38,5 +57,5 @@ export class GetCoursesService {
         return eqfCounts;
       })
     );
-  }
+  }*/
 }

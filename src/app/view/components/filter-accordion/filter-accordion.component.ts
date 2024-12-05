@@ -20,6 +20,7 @@ export class FilterAccordionComponent implements OnInit {
   };
 
   eqfGraph$: Observable<any[]>;
+  languageGraph$: Observable<any[]>;
 
   view = [500, 50];
 
@@ -31,7 +32,7 @@ export class FilterAccordionComponent implements OnInit {
   isCourseTypeActive = false;
 
   ngOnInit() {
-    this.eqfGraph$ = this.getCourses.countEqf().pipe(map(counts => {
+    this.eqfGraph$ = this.getCourses.countCategory("educationLevel").pipe(map(counts => {
       return [{
         'name': 'EQF levels',
         'series': [  
@@ -63,7 +64,31 @@ export class FilterAccordionComponent implements OnInit {
     }]})
     );
 
-    this.eqfGraph$.subscribe((elements) => console.log(elements));
+    this.languageGraph$ = this.getCourses.countCategory("language").pipe(map(counts => {
+      return [{
+        'name': 'Languages',
+        'series': [  
+      {
+        'name': 'English',
+        'value': counts["EN"]
+      },
+      {
+        'name': 'Spanish',
+        'value': counts["ES"]
+      },
+      {
+        'name': 'Slovenien',
+        'value': counts["SLO"]
+      },
+      {
+        'name': 'Swedish',
+        'value': counts["SWE"]
+      }
+      ]
+    }]})
+    );
+
+    this.languageGraph$.subscribe((elements) => console.log(elements));
   }
 
   onEqfChange(eqfLevel: string) {

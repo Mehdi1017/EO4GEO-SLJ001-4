@@ -103,6 +103,10 @@
         id="language"
         name="dropdownName"
       >
+      <div *ngIf="languageGraph$ | async as languageGraph">
+        <ngx-charts-bar-horizontal-stacked [results]="languageGraph" [scheme]="colorScheme5" [view]="view">
+        </ngx-charts-bar-horizontal-stacked>
+      </div>
         <label>
           <input
             type="checkbox"
