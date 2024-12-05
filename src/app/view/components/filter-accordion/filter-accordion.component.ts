@@ -21,7 +21,7 @@ export class FilterAccordionComponent implements OnInit {
 
   eqfGraph$: Observable<any[]>;
 
-  view = [null, 50];
+  view = [500, 50];
 
   constructor(private fcs: FilterCoursesService, private getCourses: GetCoursesService) {}
 
