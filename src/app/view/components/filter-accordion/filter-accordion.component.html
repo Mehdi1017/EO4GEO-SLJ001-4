@@ -177,6 +177,10 @@
         class="checkbox-container"
         [ngClass]="isCourseTypeActive ? 'active' : ''"
       >
+      <div *ngIf="typeGraph$ | async as typeGraph">
+        <ngx-charts-bar-horizontal-stacked [results]="typeGraph" [scheme]="colorScheme10" [view]="view">
+        </ngx-charts-bar-horizontal-stacked>
+      </div>
         <label>
           <input
             type="checkbox"

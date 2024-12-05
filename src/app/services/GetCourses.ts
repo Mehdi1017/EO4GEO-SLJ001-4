@@ -40,22 +40,4 @@ export class GetCoursesService {
     );
   }
 
-  /*countLanguage(): Observable<{ [key: string]: number}> {  
-    return this.snapItems.pipe(
-      map(actions =>  {
-          const languageCounts: { [key: string]: number } = {};
-          actions.forEach(a => {
-          const data = a.payload.doc.data() as any;
-          const eqf = data.educationLevel;
-          if (eqfCounts[eqf]) {
-            eqfCounts[eqf]++;
-          }
-          else { 
-            eqfCounts[eqf] = 1; 
-          }
-        });
-        return eqfCounts;
-      })
-    );
-  }*/
 }

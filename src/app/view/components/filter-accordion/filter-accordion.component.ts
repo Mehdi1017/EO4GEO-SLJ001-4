@@ -21,6 +21,7 @@ export class FilterAccordionComponent implements OnInit {
 
   eqfGraph$: Observable<any[]>;
   languageGraph$: Observable<any[]>;
+  typeGraph$: Observable<any[]>;
 
   view = [500, 50];
 
@@ -88,7 +89,35 @@ export class FilterAccordionComponent implements OnInit {
     }]})
     );
 
-    this.languageGraph$.subscribe((elements) => console.log(elements));
+    this.typeGraph$ = this.getCourses.countCategory("type").pipe(map(counts => {
+      return [{
+        'name': 'Course types',
+        'series': [  
+      {
+        'name': 'Learning materials',
+        'value': counts["learning material"]
+      },
+      {
+        'name': 'Self learning materials',
+        'value': counts["self-learning material"]
+      },
+      {
+        'name': 'Teaching materials',
+        'value': counts["teaching material"]
+      },
+      {
+        'name': 'Training materials',
+        'value': counts["training material"]
+      },
+      {
+        'name': 'Webinars',
+        'value': counts["webinar"]
+      }
+      ]
+    }]})
+    );
+
+    this.typeGraph$.subscribe((elements) => console.log(elements));
   }
 
   onEqfChange(eqfLevel: string) {
