@@ -1,18 +1,43 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetCoursesService {
-  items: Observable<any[]>;
+  private items: Observable<any[]>;
+  
+  snapItems:  Observable<any[]>;
+
   constructor(db: AngularFirestore) {
-    this.items = db.collection('Courses').valueChanges();
+    const collection = db.collection('Courses');
+    this.items = collection.valueChanges();
+    this.snapItems = collection.snapshotChanges();
   }
 
   getCourses() {
     return this.items;
+  }
+
+  countCategory(category: string): Observable<{ [key: string]: number}> {  
+    return this.snapItems.pipe(
+      map(actions =>  {
+          const categoryCounts: { [key: string]: number } = {};
+          actions.forEach(a => {
+          const data = a.payload.doc.data() as any;
+          const element = data[category];
+          if (categoryCounts[element]) {
+            categoryCounts[element]++;
+          }
+          else { 
+            categoryCounts[element] = 1; 
+          }
+        });
+        return categoryCounts;
+      })
+    );
   }
 
 }

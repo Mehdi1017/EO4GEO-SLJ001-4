@@ -30,6 +30,9 @@ import { CourseWrapperComponent } from "./view/components/course-wrapper/course-
 import { FilterAccordionComponent } from "./view/components/filter-accordion/filter-accordion.component";
 import { BokComponentComponent } from "./view/components/bok-component/bok-component.component";
 import { FilterCoursesService } from "./services/filter-courses.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,8 @@ import { FilterCoursesService } from "./services/filter-courses.service";
     AppSidebarModule,
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [AngularFirestore, FilterCoursesService],
   bootstrap: [AppComponent],

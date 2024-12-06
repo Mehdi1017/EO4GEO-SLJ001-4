@@ -18,6 +18,10 @@
         id="level"
         name="dropdownName"
       >
+      <div *ngIf="eqfGraph$ | async as eqfGraph">
+        <ngx-charts-bar-horizontal-stacked [results]="eqfGraph" [scheme]="colorScheme10" [view]="view">
+        </ngx-charts-bar-horizontal-stacked>
+      </div>
         <label>
           <input
             type="checkbox"
@@ -35,8 +39,9 @@
             value="EQF 3"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 3
+          Level 3 ({{ numEqf3 }})
         </label>
+      
         <label>
           <input
             type="checkbox"
@@ -44,7 +49,7 @@
             value="EQF 4"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 4
+          Level 4 ({{ numEqf4 }})
         </label>
         <label>
           <input
@@ -53,7 +58,7 @@
             value="EQF 5"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 5
+          Level 5 ({{ numEqf5 }})
         </label>
         <label>
           <input
@@ -62,7 +67,7 @@
             value="EQF 6"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 6
+          Level 6 ({{ numEqf6 }})
         </label>
         <label>
           <input
@@ -71,7 +76,7 @@
             value="EQF 7"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 7
+          Level 7 ({{ numEqf7 }})
         </label>
         <label>
           <input
@@ -80,7 +85,7 @@
             value="EQF 8"
             (change)="onEqfChange($event.target.value)"
           />
-          Level 8
+          Level 8 ({{ numEqf8 }})
         </label>
       </div>
     </div>
@@ -98,6 +103,10 @@
         id="language"
         name="dropdownName"
       >
+      <div *ngIf="languageGraph$ | async as languageGraph">
+        <ngx-charts-bar-horizontal-stacked [results]="languageGraph" [scheme]="colorScheme5" [view]="view">
+        </ngx-charts-bar-horizontal-stacked>
+      </div>
         <label>
           <input
             type="checkbox"
@@ -115,7 +124,7 @@
             value="EN"
             (change)="onLanguageChange($event.target.value)"
           />
-          English
+          English ({{ numEn }})
         </label>
         <label>
           <input
@@ -142,7 +151,7 @@
             value="SLO"
             (change)="onLanguageChange($event.target.value)"
           />
-          Slovenien
+          Slovenien ({{ numSlo }})
         </label>
         <label>
           <input
@@ -151,7 +160,7 @@
             value="ES"
             (change)="onLanguageChange($event.target.value)"
           />
-          Spanish
+          Spanish ({{ numEs }})
         </label>
       </div>
     </div>
@@ -168,6 +177,10 @@
         class="checkbox-container"
         [ngClass]="isCourseTypeActive ? 'active' : ''"
       >
+      <div *ngIf="typeGraph$ | async as typeGraph">
+        <ngx-charts-bar-horizontal-stacked [results]="typeGraph" [scheme]="colorScheme10" [view]="view">
+        </ngx-charts-bar-horizontal-stacked>
+      </div>
         <label>
           <input
             type="checkbox"
@@ -203,7 +216,7 @@
             value="self-learning material"
             (change)="filterCourseType($event.target.value)"
           />
-          Self-learning materials
+          Self-learning materials ({{ numSelfLearning }})
         </label>
         <label>
           <input
@@ -212,7 +225,7 @@
             value="teaching material"
             (change)="filterCourseType($event.target.value)"
           />
-          Teaching materials
+          Teaching materials ({{ numTeaching }})
         </label>
         <label>
           <input
@@ -230,7 +243,7 @@
             value="webinar"
             (change)="filterCourseType($event.target.value)"
           />
-          Webinars
+          Webinars ({{ numWebinars }})
         </label>
         <label>
           <input
