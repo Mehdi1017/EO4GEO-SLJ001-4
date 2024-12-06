@@ -142,7 +142,7 @@ export class FilterAccordionComponent implements OnInit {
     }]})
     );
 
-    this.typeGraph$.subscribe((elements) => console.log(elements));
+    //this.typeGraph$.subscribe((elements) => console.log(elements));
   }
 
   onEqfChange(eqfLevel: string) {
