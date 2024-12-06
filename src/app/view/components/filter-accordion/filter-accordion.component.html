@@ -21,7 +21,7 @@
       <div *ngIf="eqfGraph$ | async as eqfGraph">
         <ngx-charts-bar-horizontal-stacked [results]="eqfGraph" [scheme]="colorScheme10" [view]="view">
         </ngx-charts-bar-horizontal-stacked>
-        
+      </div>
         <label>
           <input
             type="checkbox"
@@ -41,7 +41,7 @@
           />
           Level 3 ({{ numEqf3 }})
         </label>
-      </div>
+      
         <label>
           <input
             type="checkbox"
