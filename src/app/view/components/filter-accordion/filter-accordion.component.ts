@@ -23,6 +23,23 @@ export class FilterAccordionComponent implements OnInit {
   languageGraph$: Observable<any[]>;
   typeGraph$: Observable<any[]>;
 
+  numEqf3: number;
+  numEqf4: number;
+  numEqf5: number;
+  numEqf6: number;
+  numEqf7: number;
+  numEqf8: number;
+  
+  numEn: number;
+  numEs: number;
+  numSlo: number;
+  numSwe: number;
+  
+  numSelfLearning: number;
+  numTeaching: number;
+  numTraining: number;
+  numWebinars: number;
+
   view = [500, 50];
 
   constructor(private fcs: FilterCoursesService, private getCourses: GetCoursesService) {}
@@ -34,38 +51,50 @@ export class FilterAccordionComponent implements OnInit {
 
   ngOnInit() {
     this.eqfGraph$ = this.getCourses.countCategory("educationLevel").pipe(map(counts => {
+      this.numEqf3 = counts["EQF 3"] + counts["EQF 3-4"];
+      this.numEqf4 = counts["EQF 4"] + counts["EQF 3-4"] + counts["EQF 4 / 6"];
+      this.numEqf5 = counts["EQF 5"] + counts["EQF 5 to 8"] + counts["EQF 5/6/7"] + counts["EQF 4 / 6"];
+      this.numEqf6 = counts["EQF 6"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF 6;"] + counts["EQF level:6/7"] + counts["EQF 4 / 6"];
+      this.numEqf7 = counts["EQF 7"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF level:6/7"];
+      this.numEqf8 = counts["EQF 8"] + counts["EQF 5 to 8"];
+
       return [{
         'name': 'EQF levels',
         'series': [  
       {
         'name': 'Eqf 3',
-        'value': counts["EQF 3"] + counts["EQF 3-4"]
+        'value': this.numEqf3
       },
       {
         'name': 'Eqf 4',
-        'value':  counts["EQF 4"] + counts["EQF 3-4"] + counts["EQF 4 / 6"]
+        'value':  this.numEqf4
       },
       {
         'name': 'Eqf 5',
-        'value':  counts["EQF 5"] + counts["EQF 5 to 8"] + counts["EQF 5/6/7"] + counts["EQF 4 / 6"]
+        'value':  this.numEqf5
       },
       {
         'name': 'Eqf 6',
-        'value':  counts["EQF 6"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF 6;"] + counts["EQF level:6/7"] + counts["EQF 4 / 6"]
+        'value':  this.numEqf6
       },
       {
         'name': 'Eqf 7',
-        'value':  counts["EQF 7"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF level:6/7"]
+        'value':  this.numEqf7
       },
       {
         'name': 'Eqf 8',
-        'value':  counts["EQF 8"] + counts["EQF 5 to 8"]
+        'value':  this.numEqf8
       }
       ]
     }]})
     );
 
     this.languageGraph$ = this.getCourses.countCategory("language").pipe(map(counts => {
+      this.numEn = counts["EN"];
+      this.numEs = counts["ES"];
+      this.numSlo = counts["SLO"];
+      this.numSwe = counts["SWE"];
+
       return [{
         'name': 'Languages',
         'series': [  
@@ -90,24 +119,20 @@ export class FilterAccordionComponent implements OnInit {
     );
 
     this.typeGraph$ = this.getCourses.countCategory("type").pipe(map(counts => {
+      this.numSelfLearning = counts["self-learning material"] + counts["learning material"] + counts["training material"];
+      this.numTeaching = counts["teaching material"];
+      this.numWebinars = counts["webinar"];
+
       return [{
         'name': 'Course types',
         'series': [  
       {
-        'name': 'Learning materials',
-        'value': counts["learning material"]
-      },
-      {
         'name': 'Self learning materials',
-        'value': counts["self-learning material"]
+        'value': this.numSelfLearning
       },
       {
         'name': 'Teaching materials',
         'value': counts["teaching material"]
-      },
-      {
-        'name': 'Training materials',
-        'value': counts["training material"]
       },
       {
         'name': 'Webinars',
