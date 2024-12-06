@@ -55,6 +55,18 @@ export class LayoutComponent implements OnInit {
     return false;
   }
 
+  isOptionInList(courseCategory: string, choiceList: string[]){
+    console.log(`option: ${courseCategory}`);
+    for(const choice of choiceList){
+      console.log(`choice: ${choice}`);
+      if (courseCategory.includes(choice)){
+        console.log("true");
+        return true;
+      }
+    }
+    return false;
+  }
+
   // this functions filters our course cards based on different choices; All are provided a default value
   filterCourses() {
     let choice = this.fcs.getChoices();
@@ -62,10 +74,11 @@ export class LayoutComponent implements OnInit {
       map((courses) =>
         courses.filter((course) => {
           // Apply the filters
+          //console.log(choice.eqfLevel);
 
           return (
             (choice.eqfLevel.includes("all") ||
-              choice.eqfLevel.includes(course.educationLevel)) &&
+              this.isOptionInList(course.educationLevel, choice.eqfLevel)) &&
             (choice.language.includes("all") ||
               choice.language.includes(course.language)) &&
             (choice.courseType.includes("all") ||
