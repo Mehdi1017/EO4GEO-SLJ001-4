@@ -55,6 +55,28 @@ export class LayoutComponent implements OnInit {
     return false;
   }
 
+  isEqfOptionInList(courseCategory: string, choiceList: string[]){
+    for(const choice of choiceList){
+      if (courseCategory.includes(choice)){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isTypeOptionInList(courseType: string, choiceList: string[]){
+    for(const choice of choiceList){
+      if (courseType.includes(choice) ||
+       ((choice.includes("self-learning material") && courseType.includes("material") && !courseType.includes("teaching")))){
+        
+        return true;
+      }
+    }
+    
+    return false;
+  }
+  
+
   // this functions filters our course cards based on different choices; All are provided a default value
   filterCourses() {
     let choice = this.fcs.getChoices();
@@ -62,14 +84,13 @@ export class LayoutComponent implements OnInit {
       map((courses) =>
         courses.filter((course) => {
           // Apply the filters
-
           return (
             (choice.eqfLevel.includes("all") ||
-              choice.eqfLevel.includes(course.educationLevel)) &&
+              this.isEqfOptionInList(course.educationLevel, choice.eqfLevel)) &&
             (choice.language.includes("all") ||
               choice.language.includes(course.language)) &&
             (choice.courseType.includes("all") ||
-              choice.courseType.includes(course.type)) &&
+            this.isTypeOptionInList(course.type, choice.courseType)) &&
             (choice.courseBoK === "GIST" || this.isBoKIdExists(course, choice))
           );
         })

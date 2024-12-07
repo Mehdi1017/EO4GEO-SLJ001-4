@@ -52,11 +52,11 @@ export class FilterAccordionComponent implements OnInit {
   ngOnInit() {
     this.eqfGraph$ = this.getCourses.countCategory("educationLevel").pipe(map(counts => {
       this.numEqf3 = counts["EQF 3"] + counts["EQF 3-4"];
-      this.numEqf4 = counts["EQF 4"] + counts["EQF 3-4"] + counts["EQF 4 / 6"];
-      this.numEqf5 = counts["EQF 5"] + counts["EQF 5 to 8"] + counts["EQF 5/6/7"] + counts["EQF 4 / 6"];
-      this.numEqf6 = counts["EQF 6"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF 6;"] + counts["EQF level:6/7"] + counts["EQF 4 / 6"];
-      this.numEqf7 = counts["EQF 7"] + counts["EQF 5/6/7"] + counts["EQF 5 to 8"] + counts["EQF 6-7"] + counts["EQF level:6/7"];
-      this.numEqf8 = counts["EQF 8"] + counts["EQF 5 to 8"];
+      this.numEqf4 = counts["EQF 4"] + counts["EQF 3-4"] + counts["EQF 4/5/6"];
+      this.numEqf5 = counts["EQF 5"] + counts["EQF 5/6/7/8"] + counts["EQF 5/6/7"] + counts["EQF 4/5/6"];
+      this.numEqf6 = counts["EQF 6"] + counts["EQF 5/6/7"] + counts["EQF 5/6/7/8"] + counts["EQF 6-7"] + counts["EQF 6;"] + counts["EQF level:6/7"] + counts["EQF 4/5/6"];
+      this.numEqf7 = counts["EQF 7"] + counts["EQF 5/6/7"] + counts["EQF 5/6/7/8"] + counts["EQF 6-7"] + counts["EQF level:6/7"];
+      this.numEqf8 = counts["EQF 8"] + counts["EQF 5/6/7/8"];
 
       return [{
         'name': 'EQF levels',
@@ -142,7 +142,7 @@ export class FilterAccordionComponent implements OnInit {
     }]})
     );
 
-    this.typeGraph$.subscribe((elements) => console.log(elements));
+    //this.typeGraph$.subscribe((elements) => console.log(elements));
   }
 
   onEqfChange(eqfLevel: string) {
