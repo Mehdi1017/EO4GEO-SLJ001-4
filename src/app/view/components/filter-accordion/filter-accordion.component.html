@@ -173,7 +173,16 @@
           <i class="fa fa-circle color4"> </i>
           Spanish ({{ numEs }})
         </label>
-        
+        <label>
+          <input
+            type="checkbox"
+            name="languages"
+            value="SWE"
+            (change)="onLanguageChange($event.target.value)"
+          />
+          <i class="fa fa-circle color6"> </i>
+          Swedish ({{ numSwe }})
+        </label>
       </div>
     </div>
 
