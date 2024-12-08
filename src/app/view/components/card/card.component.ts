@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: "app-card",
@@ -8,11 +11,12 @@ import { Component, OnInit, Input } from "@angular/core";
 export class CardComponent implements OnInit {
   @Input() course: {};
 
+  link: string;
+
   constructor() {
   }
 
   ngOnInit() {
-
-    //console.log(this.course['relation'].includes("eo4geo:" + "IP3-11"));
+    this.link = "http://www.eo4geo.eu/training/" + this.course["title"].toLowerCase().replaceAll(" ", "-") + "/";
   }
 }
