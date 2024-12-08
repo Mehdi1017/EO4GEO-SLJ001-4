@@ -146,15 +146,15 @@ export class FilterAccordionComponent implements OnInit {
   }
 
   onEqfChange(eqfLevel: string) {
-    this.fcs.setEqf(eqfLevel);
+    this.fcs.setOption(eqfLevel, "eqfLevel");
   }
 
   onLanguageChange(language: string) {
-    this.fcs.setLanguage(language);
+    this.fcs.setOption(language, "language");
   }
 
   filterCourseType(courseType: string) {
-    this.fcs.setCourseType(courseType);
+    this.fcs.setOption(courseType, "courseType");
   }
 
   toggleFitler(accordion: string) {
