@@ -28,16 +28,6 @@
           <input
             type="checkbox"
             name="eqfLevels"
-            value="all"
-            (change)="onEqfChange($event.target.value)"
-            checked
-          />
-          All EQF Levels
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="eqfLevels"
             value="3"
             (change)="onEqfChange($event.target.value)"
           />
@@ -119,16 +109,6 @@
           <input
             type="checkbox"
             name="languages"
-            value="all"
-            checked
-            (change)="onLanguageChange($event.target.value)"
-          />
-          All Languages
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="languages"
             value="EN"
             (change)="onLanguageChange($event.target.value)"
           />
@@ -202,16 +182,6 @@
         <ngx-charts-bar-horizontal-stacked [results]="typeGraph" [scheme]="colorScheme5" [view]="view">
         </ngx-charts-bar-horizontal-stacked>
       </div>
-        <label>
-          <input
-            type="checkbox"
-            name="contentType"
-            value="all"
-            checked
-            (change)="filterCourseType($event.target.value)"
-          />
-          All
-        </label>
         <label>
           <input
             type="checkbox"

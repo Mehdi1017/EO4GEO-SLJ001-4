@@ -28,38 +28,26 @@ export class FilterCoursesService {
     this.choice[key].splice(itemIndex, 1);
   }
 
-  setEqf(eqfLevel: string) {
-    if (this.choice.eqfLevel.includes(eqfLevel)) {
-      this.removeItem(eqfLevel, "eqfLevel");
-    } else {
-      this.choice.eqfLevel.push(eqfLevel);
+  setOption(option: string, category: string) {
+    let choiceList: [string] = this.choice[category];
+    if (choiceList.includes("all")){
+      this.removeItem("all", category);
+      choiceList.push(option);
     }
-
-    this.choiceSubject.next(this.choice); // Emit the updated state
-  }
-
-  setLanguage(language: string) {
-    if (this.choice.language.includes(language)) {
-      this.removeItem(language, "language");
-    } else {
-      this.choice.language.push(language);
+    else if (choiceList.includes(option)) {
+      this.removeItem(option, category);
+      if (choiceList.length <= 0){
+        choiceList.push("all")
+      }       
+      } 
+    else {
+      choiceList.push(option);
     }
-
     this.choiceSubject.next(this.choice); // Emit the updated state
   }
 
   setCourseBoK(courseBoK: string) {
     this.choice.courseBoK = courseBoK;
-    this.choiceSubject.next(this.choice); // Emit the updated state
-  }
-
-  setCourseType(courseType: string) {
-    if (this.choice.courseType.includes(courseType)) {
-      this.removeItem(courseType, "courseType");
-    } else {
-      this.choice.courseType.push(courseType);
-    }
-
     this.choiceSubject.next(this.choice); // Emit the updated state
   }
 }
