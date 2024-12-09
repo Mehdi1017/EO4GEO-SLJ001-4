@@ -37,7 +37,6 @@
           color: orange;
         }
       }
-
     }
 
     .active {
@@ -55,53 +54,61 @@
       border-radius: 2px;
       font-size: 14px;
       padding: 4px 6px;
-      margin-right: 8px;
+      transition: all 0.5s ease;
+
+      &:focus {
+        box-shadow: none;
+        border: 1px solid orange;
+        outline: none;
+      }
+    }
+
+    .search-icon:hover {
+      cursor: pointer;
     }
   }
 
-  .fa-circle{
+  .fa-circle {
     margin-left: 4px;
   }
 
   .color1 {
-    color: #751A1D;
+    color: #751a1d;
   }
 
   .color2 {
-    color: #BB3E03;
+    color: #bb3e03;
   }
 
   .color3 {
-    color: #CA6702;
+    color: #ca6702;
   }
 
   .color4 {
-    color: #EE9B00;
+    color: #ee9b00;
   }
 
   .color5 {
-    color: #E9D8A6;
+    color: #e9d8a6;
   }
 
   .color6 {
-    color: #94D2BD;
+    color: #94d2bd;
   }
 
   .color7 {
-    color: #0A9396;
+    color: #0a9396;
   }
 
   .color8 {
-    color: #005F73;
+    color: #005f73;
   }
 
   .color9 {
-    color: #002C3D;
+    color: #002c3d;
   }
 
   .color10 {
     color: #002229;
   }
 }
-
-

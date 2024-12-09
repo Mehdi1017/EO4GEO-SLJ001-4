@@ -1,9 +1,21 @@
 <div class="course-filter-navbar">
   <div class="form-filter">
-    <div #filters class="input-group search-bar" [ngClass]="{'input-group-focus':focus===true}">
-      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="textFilter" (keyup)="onTextSearched()">
+    <div
+      #filters
+      class="input-group search-bar"
+      [ngClass]="{ 'input-group-focus': focus === true }"
+    >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search"
+        [(ngModel)]="textFilter"
+        (keyup)="onTextSearched()"
+      />
       <div class="input-group-append">
-          <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <span class="input-group-text search-icon" id="basic-addon1"
+          ><i class="fa fa-search" aria-hidden="true"></i
+        ></span>
       </div>
     </div>
 
@@ -20,10 +32,14 @@
         id="level"
         name="dropdownName"
       >
-      <div *ngIf="eqfGraph$ | async as eqfGraph">
-        <ngx-charts-bar-horizontal-stacked [results]="eqfGraph" [scheme]="colorScheme10" [view]="view">
-        </ngx-charts-bar-horizontal-stacked>
-      </div>
+        <div *ngIf="eqfGraph$ | async as eqfGraph">
+          <ngx-charts-bar-horizontal-stacked
+            [results]="eqfGraph"
+            [scheme]="colorScheme10"
+            [view]="view"
+          >
+          </ngx-charts-bar-horizontal-stacked>
+        </div>
         <label>
           <input
             type="checkbox"
@@ -34,7 +50,7 @@
           <i class="fa fa-circle color1"> </i>
           Level 3 ({{ numEqf3 }})
         </label>
-      
+
         <label>
           <input
             type="checkbox"
@@ -101,10 +117,14 @@
         id="language"
         name="dropdownName"
       >
-      <div *ngIf="languageGraph$ | async as languageGraph">
-        <ngx-charts-bar-horizontal-stacked [results]="languageGraph" [scheme]="colorScheme5" [view]="view">
-        </ngx-charts-bar-horizontal-stacked>
-      </div>
+        <div *ngIf="languageGraph$ | async as languageGraph">
+          <ngx-charts-bar-horizontal-stacked
+            [results]="languageGraph"
+            [scheme]="colorScheme5"
+            [view]="view"
+          >
+          </ngx-charts-bar-horizontal-stacked>
+        </div>
         <label>
           <input
             type="checkbox"
@@ -178,10 +198,14 @@
         class="checkbox-container"
         [ngClass]="isCourseTypeActive ? 'active' : ''"
       >
-      <div *ngIf="typeGraph$ | async as typeGraph">
-        <ngx-charts-bar-horizontal-stacked [results]="typeGraph" [scheme]="colorScheme5" [view]="view">
-        </ngx-charts-bar-horizontal-stacked>
-      </div>
+        <div *ngIf="typeGraph$ | async as typeGraph">
+          <ngx-charts-bar-horizontal-stacked
+            [results]="typeGraph"
+            [scheme]="colorScheme5"
+            [view]="view"
+          >
+          </ngx-charts-bar-horizontal-stacked>
+        </div>
         <label>
           <input
             type="checkbox"
