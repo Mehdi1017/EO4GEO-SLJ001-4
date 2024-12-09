@@ -42,6 +42,8 @@ export class FilterAccordionComponent implements OnInit {
 
   view = [500, 50];
 
+  textFilter: string;
+
   constructor(private fcs: FilterCoursesService, private getCourses: GetCoursesService) {}
 
   // boolean to toggle accordion
@@ -155,6 +157,10 @@ export class FilterAccordionComponent implements OnInit {
 
   filterCourseType(courseType: string) {
     this.fcs.setOption(courseType, "courseType");
+  }
+
+  onTextSearched(){
+    this.fcs.setSearchText(this.textFilter);
   }
 
   toggleFitler(accordion: string) {

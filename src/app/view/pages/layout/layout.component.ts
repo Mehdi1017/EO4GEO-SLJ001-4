@@ -55,7 +55,7 @@ export class LayoutComponent implements OnInit {
     return false;
   }
 
-  isEqfOptionInList(courseCategory: string, choiceList: string[]){
+  isOptionInList(courseCategory: string, choiceList: string[]){
     for(const choice of choiceList){
       if (courseCategory.includes(choice)){
         return true;
@@ -86,12 +86,15 @@ export class LayoutComponent implements OnInit {
           // Apply the filters
           return (
             (choice.eqfLevel.includes("all") ||
-              this.isEqfOptionInList(course.educationLevel, choice.eqfLevel)) &&
+              this.isOptionInList(course.educationLevel, choice.eqfLevel)) &&
             (choice.language.includes("all") ||
               choice.language.includes(course.language)) &&
             (choice.courseType.includes("all") ||
             this.isTypeOptionInList(course.type, choice.courseType)) &&
-            (choice.courseBoK === "GIST" || this.isBoKIdExists(course, choice))
+            (choice.courseBoK === "GIST" || this.isBoKIdExists(course, choice)) &&
+            (choice.searchText === "" || course.title.includes(choice.searchText) ||
+            course.description.includes(choice.searchText) || course.abstract.includes(choice.searchText)
+          || course.tableOfContents.includes(choice.searchText)) 
           );
         })
       )
