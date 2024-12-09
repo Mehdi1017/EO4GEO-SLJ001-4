@@ -11,6 +11,7 @@ export class FilterCoursesService {
     language: ["all"],
     courseType: ["all"],
     courseBoK: "GIST",
+    searchText: ""
   };
 
   // Create a BehaviorSubject to track the changes in choice object
@@ -48,6 +49,11 @@ export class FilterCoursesService {
 
   setCourseBoK(courseBoK: string) {
     this.choice.courseBoK = courseBoK;
+    this.choiceSubject.next(this.choice); // Emit the updated state
+  }
+
+  setSearchText(searchText: string){
+    this.choice.searchText = searchText;
     this.choiceSubject.next(this.choice); // Emit the updated state
   }
 }

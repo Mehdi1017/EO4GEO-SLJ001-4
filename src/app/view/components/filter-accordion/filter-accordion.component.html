@@ -1,7 +1,7 @@
 <div class="course-filter-navbar">
   <div class="form-filter">
     <div #filters class="input-group search-bar" [ngClass]="{'input-group-focus':focus===true}">
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="textFilter" (keyup)="onTextSearched()">
       <div class="input-group-append">
           <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
       </div>
